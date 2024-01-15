@@ -1,0 +1,26 @@
+.ask-for-chance .ms-search .input-field i {
+    left:inherit !important;
+    right:10px;
+}
+
+.course .course-head .course-teacher {
+    right:inherit !important;
+    left:10px;
+}
+
+.ms-modal .btn-close {
+    left: inherit !important;
+    right: 30px;
+}
+.select2-container .select2-selection--single .select2-selection__rendered {
+    text-align: left!important;
+}
+
+.ms-slider .ms-search .input-field i {
+    right: 20px !important;
+    left: inherit !important;
+}
+.owl-carousel .owl-nav{
+    left: inherit !important;
+    right: 0;  
+}

@@ -1,0 +1,59 @@
+.opportunitie-card {
+  padding: 25px 20px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  text-decoration: none;
+  display: block;
+  .info {
+    .card-image {
+      img {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .card-info {
+      .card-title {
+        a {
+          color: #222222;
+          text-decoration: none;
+        }
+        margin-bottom: 15px;
+      }
+      .card-subtitle {
+        color: #777777;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+      .card-info--meta {
+        .meta {
+          color: #95a5a6;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  .actions {
+    @media (max-width: 1200px) {
+      width: 100%;
+    }
+    .btn {
+      padding: 10px 30px;
+    }
+    .btn-details {
+      background-color: #edeff1;
+      border: 1px solid transparent;
+      &:hover {
+        border-color: $primary;
+      }
+    }
+    .btn-primary {
+      &:hover {
+        border-color: $primary;
+        color: $primary;
+        background-color: transparent;
+      }
+    }
+  }
+}

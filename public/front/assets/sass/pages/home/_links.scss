@@ -1,0 +1,40 @@
+.meta-links {
+  .list-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(1, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 576px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .links-box {
+      h5 {
+        margin-bottom: 30px;
+      }
+      ul {
+        list-style: none;
+        position: relative;
+        li {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+          color: #777777;
+          &:before {
+            content: "";
+            width: 5px;
+            height: 2px;
+            background-color: #95a5a6;
+            display: inline-block;
+            position: absolute;
+            right: 0;
+            border-radius: 50px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.ms-opportunities {
+  padding: 100px 0;
+  @media (max-width: 992px) {
+    padding: 80px 0;
+  }
+  .ms-sidebar {
+    .widget {
+      padding: 20px 20px 30px;
+      border: 1px solid #eeeeee;
+      border-radius: 4px;
+      .widget-title {
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid #eee;
+        i {
+          color: #95a5a6;
+        }
+      }
+      .widget-content {
+        label {
+          color: #222222;
+        }
+        .widget-search {
+          margin-top: -20px;
+          input {
+            background-color: #f6f6f6;
+            border: 1px solid transparent;
+            padding-inline-end: 40px;
+            padding-inline-start: 10px;
+            padding-block: 10px;
+            &::placeholder {
+              color: #cccccc;
+            }
+            &:focus,
+            &:active {
+              border: 1px solid $primary;
+              outline: inherit;
+              box-shadow: none;
+            }
+          }
+          i {
+            color: #cccccc;
+            position: absolute;
+            left: 10px;
+          }
+        }
+      }
+    }
+    .widget-banner {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .opportunities-content {
+    padding-inline-start: 30px;
+    @media (max-width: 992px) {
+      padding-inline-start: 0px;
+    }
+    .meta-head {
+      margin-bottom: 30px;
+      .meta-title {
+        color: #222222;
+        position: relative;
+        padding-bottom: 15px;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 2px;
+          border-radius: 50px;
+          right: 0;
+          background-color: $primary;
+        }
+      }
+      .meta-count {
+        background-color: #f6f6f6;
+        padding: 8px 10px;
+        color: #777777;
+        font-weight: 500;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+    }
+  }
+}
+

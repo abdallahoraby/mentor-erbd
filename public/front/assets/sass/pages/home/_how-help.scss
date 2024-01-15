@@ -1,0 +1,57 @@
+.how-help {
+  .section-heading h2 {
+    color: $text_main;
+  }
+  .boxes {
+    margin-top: 90px;
+    margin-inline: 40px;
+    @media (max-width: 992px) {
+      margin-inline: 0;
+      row-gap: 90px;
+    }
+    .box {
+      position: relative;
+      padding: 40px 60px;
+      border-radius: 10px;
+      .box--icon {
+        background-color: #fff;
+        width: 100px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: auto;
+        position: absolute;
+        top: -50px;
+        left: 0;
+        right: 0;
+      }
+      .box--title {
+        margin-top: 40px;
+        margin-bottom: 30px;
+      }
+      .box--description {
+        color: #777777;
+      }
+      &.green {
+        background-color: rgba($color: #2ecc71, $alpha: 0.05);
+        .box--title {
+          color: #16a085;
+        }
+      }
+      &.red {
+        background-color: #fef8f8;
+        .box--title {
+          color: #e12422;
+        }
+      }
+      &.blue {
+        background-color: #f2f7fb;
+        .box--title {
+          color: #085ea6;
+        }
+      }
+    }
+  }
+}

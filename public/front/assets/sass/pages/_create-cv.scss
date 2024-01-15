@@ -1,0 +1,21 @@
+.create-cv {
+  padding: 100px 0;
+  @media (max-width: 992px) {
+    padding: 80px 0;
+  }
+  .row {
+    row-gap: 40px;
+  }
+  .content {
+    padding-inline-start: 30px;
+    @media (max-width: 992px) {
+      padding-inline-start: 0;
+    }
+ 
+    .user-image-uploaded {
+      width: 45px;
+      height: 45px;
+      margin-inline-end: 10px;
+    }
+  }
+}

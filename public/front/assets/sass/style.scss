@@ -1,0 +1,31 @@
+// Init
+@import "variables";
+@import "fonts";
+@import "header";
+@import "helpers";
+@import "footer";
+
+// global components
+@import "breadcrumb";
+@import "pagination";
+@import "opportunitie-card";
+@import "course-card";
+@import "course-category-card";
+@import "post-card";
+@import "modal-forms";
+
+// Pages
+@import "pages/home";
+@import "pages/opportunities";
+@import "pages/courses-categories";
+@import "pages/course-category";
+@import "pages/opportunitie-single";
+@import "pages/company-single";
+@import "pages/course-single";
+@import "pages/tips";
+@import "pages/post-category";
+@import "pages/post-single";
+@import "pages/create-opportunitie";
+@import "pages/contact";
+@import "pages/create-cv";
+@import "pages/about";

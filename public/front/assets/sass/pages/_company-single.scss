@@ -1,0 +1,112 @@
+.company-single {
+  padding: 100px 0;
+  @media (max-width: 992px) {
+    padding: 80px 0;
+  }
+  .container > .row {
+    row-gap: 80px;
+  }
+  .widget-company {
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    padding: 30px 20px;
+    .company-image {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 4px solid #fff;
+      border-radius: 50%;
+    }
+    .info {
+      .item {
+        .content {
+          font-size: 14px;
+          color: #777777;
+          text-decoration: none;
+          transition: 0.2s;
+          &:hover {
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+  .widget-social {
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #34495e;
+      border-radius: 50%;
+      color: #34495e;
+      text-decoration: none;
+      transition: 0.2s;
+      &:hover {
+        border-color: $primary;
+        color: $primary;
+      }
+    }
+  }
+  .company-info {
+    .about-company {
+      max-width: 85%;
+      margin-bottom: 60px;
+      @media (max-width: 992px) {
+        max-width: 100%;
+        margin-bottom: 30px;
+      }
+      .company-name {
+        font-size: 18px;
+        color: #222;
+        margin-bottom: 20px;
+      }
+      .company-description {
+        color: #95a5a6;
+        font-size: 14px;
+        line-height: 24px;
+        margin-bottom: 30px;
+      }
+      .company-contact {
+        .btn {
+          padding: 10px 20px;
+        }
+        .btn-outline-secondary {
+          border-color: #222222;
+          color: #222222;
+          &:hover {
+            background-color: #222;
+            color: #fff;
+          }
+        }
+      }
+    }
+    .opportunities {
+      .head {
+        margin-bottom: 30px;
+        .opportunities-title {
+          position: relative;
+          padding-bottom: 15px;
+          color: #222222;
+          &:after {
+            content: "";
+            width: 100%;
+            height: 2px;
+            background-color: $primary;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+        .opportunities-count {
+          background-color: $primary;
+          padding: 8px 15px;
+          color: #fff;
+          border-radius: 4px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
