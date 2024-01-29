@@ -1,2 +1,0 @@
-[05-Oct-2021 16:57:06 UTC] PHP Fatal error:  Trait 'Laravel\Scout\Searchable' not found in /home/demoasoltec/public_html/ipractin/app/Models/Opportunity.php on line 31
-[05-Oct-2021 16:57:27 UTC] PHP Fatal error:  Trait 'Laravel\Scout\Searchable' not found in /home/demoasoltec/public_html/ipractin/app/Models/Opportunity.php on line 31

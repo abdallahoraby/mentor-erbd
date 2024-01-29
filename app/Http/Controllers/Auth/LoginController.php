@@ -79,49 +79,4 @@ class LoginController extends Controller {
 		], 'login');
 	}
 
-	public function signGoogle() {
-		return Socialite::driver('google')->redirect();
-	}
-	public function signGoogleRedirect() {
-		$user = Socialite::driver('google')->user();
-		/*
-			check if user not exists
-		*/
-		$user = User::firstOrCreate([
-			'email' => $user->email,
-		], [
-			'name' => $user->name,
-			'social' => 1,
-			'avatar' => $user->user['picture'] ?? '',
-			'password' => Hash::make(Str::random(24)),
-		]);
-
-		$user->assignRole('user');
-		Auth::login($user, true);
-		Flash::success(__('front.registred_user'));
-		return redirect('/');
-	}
-
-	public function signFacebook() {
-		return Socialite::driver('facebook')->redirect();
-	}
-	public function signFacebookRedirect() {
-		$user = Socialite::driver('facebook')->user();
-
-		/*
-			check if user not exists
-		*/
-		$user = User::firstOrCreate([
-			'email' => $user->id . '@facebook.com',
-		], [
-			'name' => $user->name,
-			'social' => 1,
-			'avatar' => $user->avatar ?? '',
-			'password' => Hash::make(Str::random(24)),
-		]);
-		$user->assignRole('user');
-		Auth::login($user, true);
-		Flash::success(__('front.registred_user'));
-		return redirect('/');
-	}
 }

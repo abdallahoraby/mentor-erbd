@@ -21,7 +21,7 @@ class Theme extends Model
     use HasFactory;
 
     public $table = 'themes';
-    
+
 
     protected $dates = ['deleted_at'];
 
@@ -52,5 +52,10 @@ class Theme extends Model
         'image' => 'required |image'
     ];
 
-    
+    public static $edit_rules = [
+        'title' => 'required',
+        'image' => 'sometimes |image'
+    ];
+
+
 }

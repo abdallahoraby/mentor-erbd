@@ -11,7 +11,7 @@
                  class="btn btn-primary form-btn float-right">@lang('crud.back')</a>
         </div>
       </div>
-   @include('stisla-templates::common.errors')
+   @include('common.errors')
     <div class="section-body">
            <div class="card">
             <div class="card-body">

@@ -18,7 +18,6 @@ class CreateSiteImagesTable extends Migration
             $table->string('logo');
             $table->bigInteger('site_id');
             $table->timestamps();
-            $table->foreign('site_id')->references('id')->on('sites');
         });
     }
 

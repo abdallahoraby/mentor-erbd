@@ -22,7 +22,7 @@ class CreateCustomFieldsTable extends Migration
             $table->text('label_title');
             $table->text('additional_class')->nullable();
             $table->text('validation')->nullable();
-            $table->enum('type', array('text','number','date','file','editor','checkbox', 'select','multi_select','radio'));
+            $table->enum('type', array('text','number','date','file','editor','checkbox', 'select','multi_select','radio','email','password'));
             $table->boolean('is_searchable')->default(0);
             $table->integer('order');
             $table->timestamps();

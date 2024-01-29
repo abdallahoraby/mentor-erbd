@@ -25,8 +25,8 @@ class UpdateSiteRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Site::$rules;
-        
+        $rules = Site::$edit_rules;
+
         return $rules;
     }
 }

@@ -55,7 +55,7 @@
      {!! Form::label('avatar', __('models/users.fields.avatar').':') !!}
     {!! Form::file('avatar',['class'=>'form-control']) !!}
     @if(isset($user) && $user->avatar)
-    <img src="{{ url($user->avatar) }}" class="card-img-top img-responsive" alt="{{ $user->avatar }}">
+    <img src="{{ url($user->avatar) }}" class="card-img-top img-responsive"  alt="{{ $user->avatar }}">
     @endif
 </div>
 

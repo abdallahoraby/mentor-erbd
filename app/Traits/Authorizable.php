@@ -30,7 +30,7 @@ trait Authorizable {
 
 	public function getAbility($method) {
 		$routeName = explode('.', \Request::route()->getName());
-		$action = array_get($this->getAbilities(), $method);
+		$action = $this->array_get($this->getAbilities(), $method);
 
 		if (!isset($routeName[1])) {
 			return null;

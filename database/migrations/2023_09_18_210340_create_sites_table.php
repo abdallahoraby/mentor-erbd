@@ -40,7 +40,6 @@ class CreateSitesTable extends Migration
             $table->bigInteger('country_id');
             $table->timestamps();
             $table->softDeletes();
-            $table->foreign('country_id')->references('id')->on('countries');
         });
     }
 

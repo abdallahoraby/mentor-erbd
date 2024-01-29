@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\SiteDataTable;
+use App\Http\Controllers\AppBaseController;
 use App\Http\Requests;
 use App\Http\Requests\CreateSiteRequest;
 use App\Http\Requests\UpdateSiteRequest;
 use App\Models\SiteImage;
 use App\Repositories\SiteRepository;
 use Flash;
-use App\Http\Controllers\AppBaseController;
 use Response;
 
 class SiteController extends AppBaseController
@@ -52,27 +52,29 @@ class SiteController extends AppBaseController
      */
     public function store(CreateSiteRequest $request)
     {
-        $input = $request->all();
+        $site = $this->siteRepository->create($request->all());
 
         if (file_exists($request->logo)) {
             $file = $request->file('logo');
-            $input['logo']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $site->logo  =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'logo'.$file->getClientOriginalName())
                     ->getFilename();
         }
 
         if (file_exists($request->banner)) {
             $file = $request->file('banner');
-            $input['banner']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $site->banner  =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'banner'.$file->getClientOriginalName())
                     ->getFilename();
         }
+
 
         if (file_exists($request->about_image)) {
             $file = $request->file('about_image');
-            $input['about_image']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $site->about_image   =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'about_image'.$file->getClientOriginalName())
                     ->getFilename();
         }
+        $site->save();
 
-        $site = $this->siteRepository->create($input);
+
 
         if ($request->partners) {
             foreach ($request->file('partners') as $file){
@@ -151,8 +153,9 @@ class SiteController extends AppBaseController
         $input = $request->all();
         if (file_exists($request->logo)) {
             $file = $request->file('logo');
-            $input['logo']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $input['logo']  =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'logo'.$file->getClientOriginalName())
                     ->getFilename();
+            unlink(public_path($site->logo));
         }
 
         else{
@@ -161,8 +164,9 @@ class SiteController extends AppBaseController
 
         if (file_exists($request->banner)) {
             $file = $request->file('banner');
-            $input['banner']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $input['banner']  =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'banner'.$file->getClientOriginalName())
                     ->getFilename();
+            unlink(public_path($site->banner));
         }
 
         else{
@@ -171,8 +175,9 @@ class SiteController extends AppBaseController
 
         if (file_exists($request->about_image)) {
             $file = $request->file('about_image');
-            $input['about_image']  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+            $input['about_image']  =  'images/sites/'.$site->id.'/'.$file->move('images/sites/'.$site->id,  'about_image'.$file->getClientOriginalName())
                     ->getFilename();
+            unlink(public_path($site->about_image));
         }
 
         else{
@@ -183,7 +188,7 @@ class SiteController extends AppBaseController
 
         if ($request->partners) {
             foreach ($request->file('partners') as $file){
-                $partner_logo  =  'images/sites/'.$file->move('images/sites',  uniqid(time(), true).$file->getClientOriginalName())
+                $partner_logo  =  'images/sites/'.$site->id.'/partners/'.$file->move('images/sites/'.$site->id.'/partners',  uniqid(time(), true).$file->getClientOriginalName())
                         ->getFilename();
                 $partner = new SiteImage();
                 $partner->site_id = $site->id;
@@ -216,6 +221,7 @@ class SiteController extends AppBaseController
 
         $this->siteRepository->delete($id);
 
+
         Flash::success(__('messages.deleted', ['model' => __('models/sites.singular')]));
 
         return redirect(route('admin.sites.index'));
@@ -223,7 +229,9 @@ class SiteController extends AppBaseController
 
     public function delete_file($id)
     {
-        SiteImage::find($id)->delete();
+        $SiteImage = SiteImage::find($id);
+        unlink(public_path($SiteImage->logo));
+        $SiteImage->delete();
 
         Flash::success(__('messages.deleted', ['model' => __('models/siteInfos.fields.partners')]));
 

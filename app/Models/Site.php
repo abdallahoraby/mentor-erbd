@@ -107,9 +107,17 @@ class Site extends Model
     public static $rules = [
         'title' => 'required',
         'url' => 'required',
-        'theme_id' => 'exists:themes,id',
-        'logo' => 'image',
-        'banner' => 'image'
+        'theme_id' => 'required|exists:themes,id',
+        'logo' => 'required|image',
+        'banner' => 'required|image'
+    ];
+
+    public static $edit_rules = [
+        'title'=> 'required',
+        'url' => 'required',
+        'theme_id' => 'required|exists:themes,id',
+        'logo' => 'sometimes|image',
+        'banner' => 'sometimes|image'
     ];
 
     public function partners(){

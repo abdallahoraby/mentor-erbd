@@ -25,8 +25,8 @@ class UpdateThemeRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = Theme::$rules;
-        
+        $rules = Theme::$edit_rules;
+
         return $rules;
     }
 }

@@ -23,7 +23,7 @@
                  <div class="col-md-12">
                      <div class="checkbox">
                          <label class="text-warning">
-                             {!! Form::checkbox("permissions[]" ,'1',1) !!} {{ $perm->name}}
+                             {!! Form::checkbox("permissions[]", $perm->name, $per_found, isset($options) ? $options : []) !!} {{ $perm->name}}
                          </label>
                      </div>
                  </div>

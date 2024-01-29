@@ -47,9 +47,8 @@ class UserRepository extends BaseRepository {
 		$input['password'] = bcrypt($input['password']);
         if (request()->hasFile('avatar')) {
             $file = request()->file('avatar');
-            $extension =  'webp';
-            $fileName = date('Y-m-d') . '-' . uniqid(time(), true).$file->getClientOriginalName(). '.' . $extension;
-            $input['avatar']  =  'images/users/'.$file->move('public/images/users', $fileName)->getFilename();
+            $fileName = date('Y-m-d') . '-' . uniqid(time(), true).$file->getClientOriginalName();
+            $input['avatar']  =  'images/users/'.$file->move('images/users', $fileName)->getFilename();
         }
 
 		$model = $this->model->newInstance($input);
@@ -67,7 +66,7 @@ class UserRepository extends BaseRepository {
             $file = request()->file('avatar');
             $extension =  'webp';
             $fileName = date('Y-m-d') . '-' . uniqid(time(), true).$file->getClientOriginalName(). '.' . $extension;
-            $input['avatar']  =  'images/users/'.$file->move('public/images/users', $fileName ,'public')->getFilename();
+            $input['avatar']  =  'images/users/'.$file->move('images/users', $fileName ,'public')->getFilename();
         }
         else{
             $input['avatar']  =$model->avatar;

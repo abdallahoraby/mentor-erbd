@@ -34,4 +34,8 @@ class AppBaseController extends Controller {
 			'message' => $message,
 		], 200);
 	}
+
+    public function array_get(array $getAbilities, $method)
+    {
+    }
 }

@@ -27,7 +27,7 @@ class HomeController extends Controller {
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
 	public function index() {
-        $site = Site::where('url',url()->current())->first();
+        $site = Site::where('url',url()->current())->firstOrFail();
         $custom_fields = CustomField::where('site_id',$site->id)->get();
 		return view('themes.theme'.$site->theme_id.'.home',compact('site','custom_fields'));
 	}

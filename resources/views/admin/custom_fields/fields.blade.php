@@ -30,7 +30,7 @@
 
 <!-- Validation Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('validation', __('models/custom_fields.fields.validation').':') !!}
+    {!! Form::label('validation', __('models/custom_fields.fields.validation').':') !!} <a href="https://laravel.com/docs/10.x/validation" target="_blank">laravel validation</a>
     {!! Form::text('validation', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -43,7 +43,7 @@
 <!-- Type Field -->
 <div class="f-item form-group col-sm-6">
     {!! Form::label('type', __('models/custom_fields.fields.type').':') !!}
-    {!! Form::select('type', ['text'=>'Text','number'=>'Number','textarea'=>'TextArea','checkbox'=>'Checkbox','select'=>'Select','date'=>'Date','radio'=>'Radio'], null, ['class' => 'form-control','id'=>'select']) !!}
+    {!! Form::select('type', ['text'=>'Text','number'=>'Number','email'=>'Email','password'=>'Password','textarea'=>'TextArea','checkbox'=>'Checkbox','select'=>'Select','date'=>'Date','radio'=>'Radio'], null, ['class' => 'form-control','id'=>'select']) !!}
 </div>
 </div>
 
